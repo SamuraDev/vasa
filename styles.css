@@ -1,0 +1,194 @@
+/* Основные стили */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #fff;
+    overflow-x: hidden;
+    animation: gradientAnimation 15s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* Анимация градиента */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, #ff0066, #00ccff, #00ffcc, #ffcc00);
+        background-position: 0% 50%;
+    }
+    50% {
+        background: linear-gradient(45deg, #00ccff, #ff0066, #ffcc00, #00ffcc);
+        background-position: 100% 50%;
+    }
+    100% {
+        background: linear-gradient(45deg, #ff0066, #00ccff, #00ffcc, #ffcc00);
+        background-position: 0% 50%;
+    }
+}
+
+/* Стили для header */
+header {
+    background-color: rgba(17, 17, 17, 0.8);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex; /* Меняем на flexbox */
+    justify-content: center; /* Выравниваем пункты по центру */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width .3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Анимации и эффекты */
+.animated-section {
+    padding: 50px 20px;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Стили для карточек */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.card p {
+    color: #ccc;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #ff0066, #00ccff, #00ffcc, #ffcc00);
+    background-size: 400%;
+    z-index: 1;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+    transform: rotate(45deg);
+}
+
+.card:hover::before {
+    opacity: 0.3;
+    transform: rotate(0);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover::before {
+    opacity: 0.6;
+}
+
+/* Стили для стикеров */
+.sticker {
+    background-color: #ff0066;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Стили для кнопок */
+.glow-button {
+    background-color: #00ccff;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.glow-button:hover {
+    box-shadow: 0 0 30px rgba(0, 204, 255, 1);
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: rgba(17, 17, 17, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
